@@ -10,15 +10,39 @@ db = mysql.connector.connect(
     password="@Lifechoices1234",
     host="localhost",
     database="lifechoicesonline",
-    # auth_plugin="mysql_native_password"
 )
 
 cursor = db.cursor()
 
+# CREATES A ADMIN TABLE IF ONE DOESN'T EXIST
+cursor.execute(
+    "CREATE TABLE IF NOT EXISTS admin(id int(11) Not null primary key AUTO_INCREMENT, full_name varchar(60) Default null, "
+    "username varchar(50) Default null ,password varchar(20) Default null)")
+db.commit()
 
+# INSERT DEFAULT INFO IN THE ADMIN
+cursor.execute("INSERT INTO admin(full_name, username, password) \
+   SELECT * FROM (SELECT 'Admin', 'lifechoices', '@Lifechoices12!') as temp \
+   WHERE NOT EXISTS \
+   (SELECT 'lifechoices' FROM admin WHERE username = 'lifechoices') LIMIT 1")
+
+# # CREATE TABLE FOR USERS TO BE ADDED
+# cursor.execute(
+#     "CREATE TABLE IF NOT EXISTS users(id int(11) Not null primary key AUTO_INCREMENT, full_name varchar(60) Default null, "
+#     "username varchar(50) Default null ,password varchar(20) Default null)")
+# mydb.commit()
+#
+# # DEFAULT INFO IN THE USERS
+# cursor.execute("INSERT INTO users(full_name, username, password) \
+#    SELECT * FROM (SELECT 'Roy', 'RoydenB', 'lifechoices') as temp \
+#    WHERE NOT EXISTS \
+#    (SELECT 'RoydenB' FROM users WHERE username = 'RoydenB') LIMIT 1")
+# mydb.commit()
+
+
+# WINDOW WHEN THE ADMIN HAVE SUCCESFULLY LOGGEDIN
 admin_login = Tk()
-admin_login.resizable(False, False)
-admin_login.title("Admin")
+admin_login.title("Admin Login Window")
 
 
 #Welcome intro
@@ -38,6 +62,7 @@ def login():
         mb.showinfo("Login", "login successful")
         admin_login.destroy()
         import admin.py
+
     else:
         mb.showerror("Unsuccessful", "Login failed")
 
@@ -60,8 +85,6 @@ usrEnt.place(x=150, y=100)
 usrAdp.place(x=20, y=140)
 adUps.place(x=150, y=140)
 privBtn.place(x=20, y=180)
-
-
 
 
 #Center gui on screen

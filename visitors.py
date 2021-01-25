@@ -1,23 +1,29 @@
 from tkinter import *
 import mysql.connector
 from tkinter import  messagebox
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="lifechoices",
-  password="@Lifechoices1234",
-  database="lifechoicesonline"
+
+db = mysql.connector.connect(
+    user="lifechoices",
+    password="@Lifechoices1234",
+    host="localhost",
+    database="lifechoicesonline",
 )
 
-mycursor = mydb.cursor()
+cursor = db.cursor()
 
-def add():
-    selction = var.get()
-    if selction == 1:
-        comm3 = "INSERT INTO visitors (full_name, mobile_number) VALUES (%s, %s, %s)"
-        user_info1 =  str(v_fullname_ent.get()), mobile_ent.get()
-        mycursor.execute(comm3, user_info1)
-        mydb.commit()
-        messagebox.showinfo("Confirmation", "New admin successfully created")
+
+# CREATE TABLE FOR USERS TO BE ADDED
+cursor.execute(
+    "CREATE TABLE IF NOT EXISTS visitors(full_name varchar(60) Default null,"
+     "mobile varchar(20) Default null, reason varchar(20) Default null)")
+db.commit()
+
+# DEFAULT INFO IN THE USERS
+cursor.execute("INSERT INTO visitors (full_name, mobile, reason) \
+   SELECT * FROM (SELECT 'Roy', '078-123-4576', 'Professional dev') as temp \
+   WHERE NOT EXISTS \
+   (SELECT 'Roy' FROM visitors WHERE visitors = '078-123-4576') LIMIT 1")
+db.commit()
 
 
 def clear_v():
@@ -52,8 +58,9 @@ mobile_lbl = Label(window,text="Please enter your mobile number: ")
 mobile_lbl.place(x=180,y=300)
 
 # ENTRIES
-v_fullname_ent = Entry(window,command=add)
+v_fullname_ent = Entry(window)
 v_fullname_ent.place(x=180,y=250)
+
 
 mobile_ent = Entry(window)
 mobile_ent.place(x=180,y=330)
