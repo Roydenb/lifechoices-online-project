@@ -340,30 +340,30 @@ list_logout.place(x=690, y=220)
 
 #############################################################
 # FIRST ROW INFORMATION LABLES
-lbl_ib = Label(admin, text="ID:", fg="white", bg="black")
+lbl_ib = Label(admin, text="ID: ", fg="white", bg="black")
 lbl_ib.place(x=140, y=190)
 
-lbl_fulln = Label(admin, text="Fullname:", fg="white", bg="black")
+lbl_fulln = Label(admin, text="FULLNAME: ", fg="white", bg="green")
 lbl_fulln.place(x=250, y=190)
 
-lbl_user = Label(admin, text="Username", fg="white", bg="black")
+lbl_user = Label(admin, text="USERNAME: ", fg="white", bg="black")
 lbl_user.place(x=370, y=190)
 
-lbl_passw = Label(admin, text="Password:",fg="white", bg="black")
+lbl_passw = Label(admin, text="PASSWORD:",fg="white", bg="green")
 lbl_passw.place(x=533, y=190)
 
 # SECOND ROW OF LABELS
 # THIS INDECATE THE LOG IN AND LOG OUT OF USERS
-lbl_userlog = Label(admin, text="Username:",fg="white", bg="green")
+lbl_userlog = Label(admin, text="USERNAME:",fg="white", bg="green")
 lbl_userlog.place(x=370, y=410)
 
-lbl_date = Label(admin, text="Date:", fg="white", bg="black")
+lbl_date = Label(admin, text="DATE:", fg="white", bg="black")
 lbl_date.place(x=500, y=410)
 
-lbl_intime = Label(admin, text="Login Time:", fg="white", bg="green")
+lbl_intime = Label(admin, text="LOGIN TIME:", fg="white", bg="green")
 lbl_intime.place(x=600, y=410)
 
-lbl_outtime = Label(admin, text="Logout Time:", fg="white", bg="black")
+lbl_outtime = Label(admin, text="LOGOUT TIME:", fg="white", bg="black")
 lbl_outtime.place(x=690, y=410)
 
 ###############################################################
