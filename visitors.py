@@ -25,13 +25,8 @@ cursor.execute("INSERT INTO visitors (full_name, mobile, reason) \
    (SELECT 'Roy' FROM visitors WHERE mobile = '078-123-4576') LIMIT 1")
 db.commit()
 
-# def add_visitor():
-#     if selction == 1:
-#         comm3 = "INSERT INTO visitors (full_name, mobile) VALUES (%s, %s, %s)"
-#         visit = str(v_fullname_ent.get()), str(mobile_ent.get())
-#         cursor.execute(comm3, visit)
-#         db.commit()
-#         messagebox.showinfo("Confirmation", "New admin successfully created")
+def add_visitor():
+    pass
 
 def clear_v():
     v_fullname_ent.delete(0,END)
@@ -79,7 +74,7 @@ reason_ent = Entry(window)
 reason_ent.place(x=180,y=400)
 
 # BUTTONS
-visitor_log_btn = Button(window,text="Submit",width=40,bg= "green")
+visitor_log_btn = Button(window,text="Submit",width=40,bg= "green",command = add_visitor)
 visitor_log_btn.place(x=80,y=450)
 
 # clear button
