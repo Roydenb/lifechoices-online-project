@@ -92,14 +92,14 @@ def grant():
 
 # THIS WILL CLEAR THE LISTBOX AND THE ENTRY FIELDS
 def clear_list():
-    liName.delete(0,END)
-    liD.delete(0,END)
-    liT.delete(0,END)
-    liP.delete(0,END)
-    Liu.delete(0, END)
-    Lid.delete(0,END)
-    LiTi.delete(0, END)
-    LiT0.delete(0,END)
+    list_name.delete(0,END)
+    list_id.delete(0,END)
+    list_usern.delete(0,END)
+    list_passw.delete(0,END)
+    list_user.delete(0, END)
+    list_date.delete(0,END)
+    list_login.delete(0, END)
+    list_logout.delete(0,END)
     nameReg.delete(0,END)
     usrName.delete(0,END)
     psswrd.delete(0,END)
@@ -114,60 +114,60 @@ def display():
         id = cursor.fetchall()
 
         for x in id:
-            liName.insert(END, x)
+            list_name.insert(END, x)
 
-        liName.insert(END, str(cursor.rowcount) + " rows")
+        list_name.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT full_name FROM admin")
 
         name = cursor.fetchall()
 
         for x in name:
-            liD.insert(END, x)
+            list_id.insert(END, x)
 
-        liD.insert(END, str(cursor.rowcount) + " rows")
+        list_id.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT username FROM admin")
 
         uName = cursor.fetchall()
         for x in uName:
-            liT.insert(END, x)
-        liT.insert(END, str(cursor.rowcount) + " rows")
+            list_usern.insert(END, x)
+        list_usern.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT password FROM admin")
 
         pas = cursor.fetchall()
         for x in pas:
-            liP.insert(END, x)
-        liP.insert(END, str(cursor.rowcount) + " rows")
+            list_passw.insert(END, x)
+        list_passw.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT full_name FROM time_in")
 
         tUn = cursor.fetchall()
         for x in tUn:
-            Liu.insert(END, x)
-        Liu.insert(END, str(cursor.rowcount) + " rows")
+            list_user.insert(END, x)
+        list_user.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT date FROM time_in")
 
         d = cursor.fetchall()
         for x in d:
-            Lid.insert(END, x)
-        Lid.insert(END, str(cursor.rowcount) + " rows")
+            list_date.insert(END, x)
+        list_date.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT logged_in FROM time_in")
 
         timeIn = cursor.fetchall()
         for x in timeIn:
-            LiTi.insert(END, x)
-        LiTi.insert(END, str(cursor.rowcount) + " rows")
+            list_login.insert(END, x)
+        list_login.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT logged_out FROM time_out")
 
         timeout = cursor.fetchall()
         for x in timeout:
-            LiT0.insert(END, x)
-        LiT0.insert(END, str(cursor.rowcount) + " rows")
+            list_logout.insert(END, x)
+        list_logout.insert(END, str(cursor.rowcount) + " rows")
 
     elif selction == 2:
         cursor.execute("SELECT id FROM users")
@@ -175,60 +175,60 @@ def display():
         id = cursor.fetchall()
 
         for x in id:
-            liName.insert(END, x)
+            list_name.insert(END, x)
 
-        liName.insert(END, str(cursor.rowcount) + " rows")
+        list_name.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT full_name FROM users")
 
         name = cursor.fetchall()
 
         for x in name:
-            liD.insert(END, x)
+            list_id.insert(END, x)
 
-        liD.insert(END, str(cursor.rowcount) + " rows")
+        list_id.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT username FROM users")
 
         uName = cursor.fetchall()
         for x in uName:
-            liT.insert(END, x)
-        liT.insert(END, str(cursor.rowcount) + " rows")
+            list_usern.insert(END, x)
+        list_usern.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT password FROM users")
 
         pas = cursor.fetchall()
         for x in pas:
-            liP.insert(END, x)
-            liP.insert(END, str(cursor.rowcount) + " rows")
+            list_passw.insert(END, x)
+            list_passw.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT full_name FROM time_in")
 
         tUn = cursor.fetchall()
         for x in tUn:
-            Liu.insert(END, x)
-        Liu.insert(END, str(cursor.rowcount) + " rows")
+            list_user.insert(END, x)
+        list_user.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT date FROM time_in")
 
         d = cursor.fetchall()
         for x in d:
-            Lid.insert(END, x)
-        Lid.insert(END, str(cursor.rowcount) + " rows")
+            list_date.insert(END, x)
+        list_date.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT logged_in FROM time_in")
 
         timeIn = cursor.fetchall()
         for x in timeIn:
-            LiTi.insert(END, x)
-        LiTi.insert(END, str(cursor.rowcount) + " rows")
+            list_login.insert(END, x)
+        list_login.insert(END, str(cursor.rowcount) + " rows")
 
         cursor.execute("SELECT logged_out FROM time_out")
 
         timeIn = cursor.fetchall()
         for x in timeIn:
-            LiT0.insert(END, x)
-        LiT0.insert(END, str(cursor.rowcount) + " rows")
+            list_logout.insert(END, x)
+        list_logout.insert(END, str(cursor.rowcount) + " rows")
 
 def dump():
     username = 'lifechoices'
@@ -312,59 +312,59 @@ psswrd.place(x=150,y=350)
 # PLACEMENT OF LISTBOX
 # THE ABOVE
 # LISTBOX
-liName = Listbox(admin, width=20)
-liName.place(x=140, y=5)
+list_name = Listbox(admin, width=20)
+list_name.place(x=140, y=5)
 
-liD = Listbox(admin, width=20)
-liD.place(x=250, y=5)
+list_id = Listbox(admin, width=20)
+list_id.place(x=250, y=5)
 
-liT = Listbox(admin, width=20)
-liT.place(x=370, y=5)
+list_passw = Listbox(admin, width=20)
+list_passw.place(x=533, y=5)
 
-liP = Listbox(admin, width=20)
-liP.place(x=500, y=5)
+list_usern = Listbox(admin, width=20)
+list_usern.place(x=370, y=5)
 
 # SECOND SET OF LISTBOXES
 # THIS INDECATE THE LOG IN AND LOG OUT OF USERS
-Liu = Listbox(admin, width=20)
-Liu.place(x=370, y=220)
+list_user = Listbox(admin, width=20)
+list_user.place(x=370, y=220)
 
-Lid = Listbox(admin, width=20)
-Lid.place(x=500, y=220)
+list_date = Listbox(admin, width=20)
+list_date.place(x=500, y=220)
 
-LiTi = Listbox(admin, width=20)
-LiTi.place(x=600, y=220)
+list_login = Listbox(admin, width=20)
+list_login.place(x=600, y=220)
 
-LiT0 = Listbox(admin, width=20)
-LiT0.place(x=690, y=220)
+list_logout = Listbox(admin, width=20)
+list_logout.place(x=690, y=220)
 
 #############################################################
 # FIRST ROW INFORMATION LABLES
-liLb = Label(admin, text="ID:", fg="white", bg="black")
-liLb.place(x=140, y=190)
+lbl_ib = Label(admin, text="ID:", fg="white", bg="black")
+lbl_ib.place(x=140, y=190)
 
-li2Lb = Label(admin, text="Fullname:", fg="white", bg="black")
-li2Lb.place(x=250, y=190)
+lbl_fulln = Label(admin, text="Fullname:", fg="white", bg="black")
+lbl_fulln.place(x=250, y=190)
 
-liTL = Label(admin, text="Username", fg="white", bg="black")
-liTL.place(x=370, y=190)
+lbl_user = Label(admin, text="Username", fg="white", bg="black")
+lbl_user.place(x=370, y=190)
 
-liLp = Label(admin, text="Password:",fg="white", bg="black")
-liLp.place(x=500, y=190)
+lbl_passw = Label(admin, text="Password:",fg="white", bg="black")
+lbl_passw.place(x=533, y=190)
 
 # SECOND ROW OF LABELS
 # THIS INDECATE THE LOG IN AND LOG OUT OF USERS
-lbU = Label(admin, text="Username:",fg="white", bg="green")
-lbU.place(x=370, y=410)
+lbl_userlog = Label(admin, text="Username:",fg="white", bg="green")
+lbl_userlog.place(x=370, y=410)
 
-lbD = Label(admin, text="Date:", fg="white", bg="black")
-lbD.place(x=500, y=410)
+lbl_date = Label(admin, text="Date:", fg="white", bg="black")
+lbl_date.place(x=500, y=410)
 
-LiTiL = Label(admin, text="Login Time:", fg="white", bg="green")
-LiTiL.place(x=600, y=410)
+lbl_intime = Label(admin, text="Login Time:", fg="white", bg="green")
+lbl_intime.place(x=600, y=410)
 
-LiOl = Label(admin, text="Logout Time:", fg="white", bg="black")
-LiOl.place(x=690, y=410)
+lbl_outtime = Label(admin, text="Logout Time:", fg="white", bg="black")
+lbl_outtime.place(x=690, y=410)
 
 ###############################################################
 
